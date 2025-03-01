@@ -1,0 +1,6 @@
+# Hidden System File
+.DS_Store
+
+# SCSS and .map files for development
+*.css.map
+/scss
