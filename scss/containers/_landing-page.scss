@@ -1,0 +1,94 @@
+@use '../settings/fonts';
+@use '../settings/colors';
+
+@keyframes fill {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.pre-loader {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: colors.$text-color;
+    color: colors.$background-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99!important;
+
+    .pre-loader-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .header {
+            position: relative;
+            width: max-content;
+            margin: 0 auto;
+
+            h1 {
+                position: relative;
+                top: 125px;
+                text-transform: uppercase;
+                text-align: center;
+                font-family: fonts.$font-title;
+                font-weight: 500;
+                font-size: 4vw;
+                line-height: 105%;
+                color: colors.$text-color;
+                -webkit-text-stroke: 1px rgba(255,255,255,.6);
+
+                &::before {
+                    content: attr(data-text);
+                    position: absolute;
+                    color: colors.$background-color;
+                    overflow: hidden;
+                    height: 110%;
+                    width: 0%;
+                    transition: 1s;
+                    animation: fill 1.5s cubic-bezier(0.6, 0, 0.4, 1) forwards;
+                    animation-delay: 1.5s;
+                }
+            }
+
+            .header-wrapper::after {
+                content: "";
+                position: absolute;
+                top: 120px;
+                left: -20px;
+                // height 120px
+                height: 150px;
+                width: 110%;
+                background-color: colors.$text-color;
+                margin: 0 auto;
+            }
+        }
+
+        .concat {
+            display: flex;
+        }
+    }
+
+    .pre-loader-btn {
+        position: relative;
+        margin: 3em 0 1em 0;
+        font-family: fonts.$font-text;
+        font-size: 1.2rem;
+        cursor: pointer;
+        z-index: 2;
+        opacity: 0;
+
+        svg {
+            position: relative;
+            width: 80px;
+            top: 0;
+            padding: 0 0.4em;
+        }
+    }
+}
