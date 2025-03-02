@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @keyframes fill {
   from {
     width: 0%;
@@ -16,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  z-index: 99 !important;
 }
 .pre-loader .pre-loader-container {
   display: flex;
@@ -87,10 +88,359 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  width: 100%;
+  height: 800vh;
+  font-family: "PP Neue Montreal";
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-family: "FK Screamer";
+  font-weight: lighter;
+  font-size: 64px;
+  line-height: 1;
+}
+
+h1 span {
+  color: #ff6b00;
+}
+
+p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.best-project-hero,
+.best-project-outro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+}
+
+.best-project-hero h1,
+.best-project-outro h1 {
+  text-align: center;
+  font-size: 80px;
+}
+
+.best-project-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150% !important;
+  height: 150% !important;
+}
+
+canvas.best-project-outline-layer {
+  z-index: 1;
+}
+
+canvas.best-project-fill-layer {
+  z-index: 3;
+}
+
+.best-project-cards {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  will-change: transform;
+  z-index: 2;
+}
+
+.best-project-card {
+  position: relative;
+  width: 10%;
+  height: 75%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1.5em;
+}
+
+.best-project-card-img,
+.best-project-card-title {
+  flex: 1;
+  overflow: hidden;
+}
+
+.best-project-card-title {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .best-project-card {
+    width: 25%;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "PP Neue Montreal";
+  background-color: #0f0f0f;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1 {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+a,
+p {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.blurry-prev {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(80px);
+}
+
+.col {
+  position: relative;
+  padding: 1em;
+}
+
+.site-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav {
+  display: flex;
+  gap: 1em;
+}
+
+.header {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.project-preview {
+  flex: 2;
+}
+
+.project-details {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  width: 50%;
+}
+
+.title {
+  margin-bottom: 0.5em;
+}
+
+.info {
+  margin-bottom: 1em;
+}
+
+.title,
+.credits,
+.director,
+.cinematographer,
+.line {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.title h1 {
+  position: relative;
+  transform: translateY(40px);
+  will-change: transform;
+}
+
+.info p .line span,
+.credits p,
+.director p,
+.cinematographer p {
+  display: inline-block;
+  position: relative;
+  transform: translateY(20px);
+  will-change: transform;
+}
+
+.project-img {
+  position: absolute;
+  left: 1em;
+  bottom: 1em;
+  width: 75%;
+  height: 50%;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.project-img img {
+  will-change: transform;
+}
+
+.gallery-wrapper {
+  z-index: 2;
+  overflow: auto;
+  padding: 0.75em;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+.gallery {
+  width: 100px;
+  height: 300vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+}
+
+.item {
+  position: relative;
+  flex: 1;
+  background-color: #aeaeae;
+}
+
+.item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  transition: background-color 0.5s ease-in-out;
+  transition-delay: 0.5s;
+}
+
+.item.active::after {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+  .site-info {
+    flex: 0.5;
+    border-left: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .header {
+    top: unset;
+    bottom: 1em;
+    transform: none;
+  }
+  .site-info .copy {
+    display: none;
+  }
+  .project-details {
+    width: calc(100% - 1em);
+  }
+  .project-img {
+    width: 93%;
+  }
+  .gallery-wrapper {
+    border-right: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .gallery {
+    width: 300vw;
+    height: 100px;
+    flex-direction: row;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html, body {
   width: 100%;
   height: 100vh;
-  background: #E5E3DC;
+  background: #0A0A0A;
+  font-family: "Mulish", sans-serif;
 }
 
 /*# sourceMappingURL=main.css.map */

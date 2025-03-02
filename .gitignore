@@ -1,6 +1,9 @@
 # Hidden System File
 .DS_Store
 
+# Editor preference
+.vscode
+
 # SCSS and .map files for development
 *.css.map
 /scss
