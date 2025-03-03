@@ -1,8 +1,9 @@
 @use './settings/colors';
 @use './settings/fonts';
 
+@import './components/home-link';
+
 @import './containers/landing-page';
-@import './containers/work';
 @import './containers/work-list';
 
 * {

@@ -1,3 +1,6 @@
+@use '../settings/colors';
+@use '../settings/fonts';
+
 * {
     margin: 0;
     padding: 0;
@@ -63,22 +66,13 @@
   }
   
   .site-info {
+    border-right: 8px solid colors.$background-color;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  nav {
-    display: flex;
-    gap: 1em;
-  }
-  
-  .header {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    max-width: 400px;
+    min-width: 400px;
   }
   
   .project-preview {
@@ -90,6 +84,11 @@
     top: 1em;
     left: 1em;
     width: 50%;
+  }
+
+  .cv {
+    background-color: red;
+    aspect-ratio: 210 / 297;
   }
   
   .title {
@@ -104,7 +103,8 @@
   .credits,
   .director,
   .cinematographer,
-  .line {
+  .line,
+  .ressources {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   
@@ -117,7 +117,8 @@
   .info p .line span,
   .credits p,
   .director p,
-  .cinematographer p {
+  .cinematographer p,
+  .ressources p {
     display: inline-block;
     position: relative;
     transform: translateY(20px);

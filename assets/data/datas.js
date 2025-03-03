@@ -1,9 +1,13 @@
 export const galleryItems = [
     {
-      title: "Beyond The Summit",
-      copy: "Join a team of elite mountaineers as they attempt to conquer K2 in winter, a feat never before accomplished. This breathtaking documentary captures the raw beauty of the Karakoram and the indomitable human spirit.",
-      director: "Alex Honnold",
-      cinematographer: "Jimmy Chin",
+      title: "Portfolio",
+      content: "Ce portfolio interactif met en avant l'ensemble de mes projets, réalisés aussi bien dans un cadre personnel qu'académique. Développé en HTML, CSS et JavaScript, il utilise GSAP pour des animations fluides et dynamiques ainsi que Lenis pour un défilement optimisé. L'optimisation des performances a été une priorité, avec un code structuré et maintenable, une gestion efficace des animations et un chargement optimisé des ressources.",
+      tags: ["JavaScript", "GSAP", "Lenis", "CSS", "HTML", "Portfolio", "Animation", "Optimisation"],
+      author: "Guillaume Dewailly",
+      ressources: {
+        GitHub: "https://github.com/GuillaumeDewailly/portfolio",
+        website: "https://guillaumedewailly.com",
+      },
     },
     {
       title: "Olympian's Journey",

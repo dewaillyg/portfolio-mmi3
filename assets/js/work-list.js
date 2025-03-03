@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const elementsToAnimate = document.querySelectorAll(
-    ".title h1, .info p .line span, .credits p, .director p, .cinematographer p"
+    ".title h2, .info p .line span, .credits p, .director div, .cinematographer p, .ressources div"
   );
   gsap.set(elementsToAnimate, {
     y: 0,
@@ -59,29 +59,48 @@ document.addEventListener("DOMContentLoaded", function () {
     const newProjectDetails = createElementWithClass("div", "project-details");
 
     const detailsStructure = [
-      { className: "title", tag: "h1", content: activeItem.title },
-      { className: "info", tag: "p", content: activeItem.copy },
-      { className: "credits", tag: "p", content: "Credits" },
-      {
-        className: "director",
-        tag: "p",
-        content: `Director: ${activeItem.director}`,
-      },
-      {
-        className: "cinematographer",
-        tag: "p",
-        content: `Cinematographer: ${activeItem.cinematographer}`,
-      },
+        { className: "title", tag: "h2", content: activeItem.title },
+        { className: "info", tag: "p", content: activeItem.content },
+        {
+          className: "director",
+          tag: "div",
+          content: activeItem.tags
+            ? activeItem.tags.map(tag => `<span class="tag">${tag}</span>`).join(" ")
+            : ""
+        },        
+        {
+            className: "cinematographer",
+            tag: "p",
+            content: `Auteur: ${activeItem.author}`,
+        },
+        {
+            className: "ressources",
+            tag: "div",
+            content: activeItem.ressources
+                ? Object.entries(activeItem.ressources)
+                    .map(([key, url]) => `<a href="${url}" target="_blank">${key}</a>`)
+                    .join(" | ")
+                : "",
+        }
     ];
 
     detailsStructure.forEach(({ className, tag, content }) => {
       const div = createElementWithClass("div", className);
       const element = document.createElement(tag);
-      element.textContent = content;
+    
+      // Utilisation de innerHTML uniquement pour les contenus HTML
+      if (className === "ressources" || className === "director") {
+        element.innerHTML = content;
+      } else {
+        element.textContent = content;
+      }
+    
       div.appendChild(element);
       newProjectDetails.appendChild(div);
     });
+    
 
+    // Ajout de l'image du projet
     const newProjectImg = createElementWithClass("div", "project-img");
     const newImg = document.createElement("img");
     newImg.src = `./assets/img/img${index + 1}.jpg`;
@@ -89,11 +108,12 @@ document.addEventListener("DOMContentLoaded", function () {
     newProjectImg.appendChild(newImg);
 
     return {
-      newProjectDetails,
-      newProjectImg,
-      infoP: newProjectDetails.querySelector(".info p"),
+        newProjectDetails,
+        newProjectImg,
+        infoP: newProjectDetails.querySelector(".info p"),
     };
-  }
+}
+
 
   function handleItemClick(index) {
     if (index === activeItemIndex || isAnimating) return;
@@ -107,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
     activeItemIndex = index;
 
     const elementsToAnimate = document.querySelectorAll(
-      ".title h1, .info p .line span, .credits p, .director p, .cinematographer p"
+      ".title h2, .info p .line span, .credits p, .director div, .cinematographer p, .ressources div"
     );
 
     const currentProjectImg = document.querySelector(".project-img");
@@ -177,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
         createSplitText(infoP);
 
         const newElementsToAnimate = newProjectDetails.querySelectorAll(
-          ".title h1, .info p .line span, .credits p, .director p, .cinematographer p"
+          ".title h2, .info p .line span, .credits p, .director div, .cinematographer p, .ressources div"
         );
 
         gsap.fromTo(

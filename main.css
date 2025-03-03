@@ -1,5 +1,93 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+.home-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.home-link .home-link-text {
+  font-size: 1.5rem;
+  text-decoration: underline;
+  font-family: "Playfair Display", serif, serif;
+  color: #E5E3DC;
+}
+.home-link .home-link-text:hover {
+  cursor: pointer;
+}
+.home-link .button {
+  display: block;
+  position: relative;
+  width: 56px;
+  height: 56px;
+  transform: scale(0.8);
+  margin: 0;
+  overflow: hidden;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+  /* Lorsque la classe .hover est activée, appliquer l'animation */
+  /* Lors du survol normal du bouton */
+}
+.home-link .button::before, .home-link .button::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  inset: 7px;
+  transition: opacity 0.4s, transform 0.5s;
+}
+.home-link .button::before {
+  border: 4px solid #E5E3DC;
+  transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms, transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+}
+.home-link .button::after {
+  border: 4px solid #E5E3DC;
+  transform: scale(1.3);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.home-link .button .button-box {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.home-link .button .button-box .button-elem {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 17px 18px 0 18px;
+  transform: rotate(180deg);
+  fill: #E5E3DC;
+}
+.home-link .button .button-box:hover, .home-link .button .button-box:focus {
+  transition: 0.4s;
+  transform: translateX(-56px);
+}
+.home-link .button.hover::before {
+  opacity: 0;
+  transform: scale(0.7);
+}
+.home-link .button.hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+.home-link .button.hover .button-box {
+  transition: 0.4s;
+  transform: translateX(-56px);
+}
+.home-link .button:hover::before, .home-link .button:focus::before {
+  opacity: 0;
+  transform: scale(0.7);
+}
+.home-link .button:hover::after, .home-link .button:focus::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
 @keyframes fill {
   from {
     width: 0%;
@@ -90,142 +178,6 @@
 
 html,
 body {
-  width: 100%;
-  height: 800vh;
-  font-family: "PP Neue Montreal";
-}
-
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-h1 {
-  text-transform: uppercase;
-  font-family: "FK Screamer";
-  font-weight: lighter;
-  font-size: 64px;
-  line-height: 1;
-}
-
-h1 span {
-  color: #ff6b00;
-}
-
-p {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-section {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.best-project-hero,
-.best-project-outro {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #000;
-  color: #fff;
-}
-
-.best-project-hero h1,
-.best-project-outro h1 {
-  text-align: center;
-  font-size: 80px;
-}
-
-.best-project-bg-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 150% !important;
-  height: 150% !important;
-}
-
-canvas.best-project-outline-layer {
-  z-index: 1;
-}
-
-canvas.best-project-fill-layer {
-  z-index: 3;
-}
-
-.best-project-cards {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 300%;
-  height: 100vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  will-change: transform;
-  z-index: 2;
-}
-
-.best-project-card {
-  position: relative;
-  width: 10%;
-  height: 75%;
-  background-color: black;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  padding: 1.5em;
-}
-
-.best-project-card-img,
-.best-project-card-title {
-  flex: 1;
-  overflow: hidden;
-}
-
-.best-project-card-title {
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: clip;
-}
-
-.lenis.lenis-smooth iframe {
-  pointer-events: none;
-}
-
-@media (max-width: 900px) {
-  .best-project-card {
-    width: 25%;
-  }
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
   width: 100vw;
   height: 100vh;
   font-family: "PP Neue Montreal";
@@ -283,22 +235,13 @@ p {
 }
 
 .site-info {
+  border-right: 8px solid #E5E3DC;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-nav {
-  display: flex;
-  gap: 1em;
-}
-
-.header {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  max-width: 400px;
+  min-width: 400px;
 }
 
 .project-preview {
@@ -310,6 +253,11 @@ nav {
   top: 1em;
   left: 1em;
   width: 50%;
+}
+
+.cv {
+  background-color: red;
+  aspect-ratio: 210/297;
 }
 
 .title {
@@ -324,7 +272,8 @@ nav {
 .credits,
 .director,
 .cinematographer,
-.line {
+.line,
+.ressources {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
@@ -337,7 +286,8 @@ nav {
 .info p .line span,
 .credits p,
 .director p,
-.cinematographer p {
+.cinematographer p,
+.ressources p {
   display: inline-block;
   position: relative;
   transform: translateY(20px);
