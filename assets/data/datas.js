@@ -6,7 +6,7 @@ export const galleryItems = [
       author: "Guillaume Dewailly",
       ressources: {
         GitHub: "https://github.com/GuillaumeDewailly/portfolio",
-        website: "https://guillaumedewailly.com",
+        "Site Internet": "https://guillaumedewailly.com",
       },
     },
     {
