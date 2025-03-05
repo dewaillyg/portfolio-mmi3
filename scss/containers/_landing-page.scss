@@ -10,6 +10,31 @@
     }
 }
 
+.pre-loader-home {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .avatar {
+        max-width: 50px;
+        img {
+            border-radius: 100%;
+        }
+    }
+
+    a {
+        text-decoration: underline;
+        margin-left: 1rem;
+    }
+
+    .avatar-link {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+}
+
 .pre-loader {
     position: fixed;
     height: 100%;

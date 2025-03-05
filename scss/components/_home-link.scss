@@ -2,109 +2,108 @@
 @use '../settings/fonts';
 
 .home-link {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  
-    .home-link-text {
-      font-size: 1.5rem;
-      text-decoration: underline;
-      font-family: fonts.$font-title, serif;
-      color: colors.$background-color;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
-      &:hover {
-        cursor: pointer;
+  .home-link-text {
+    font-size: 1.5rem;
+    text-decoration: underline;
+    font-family: fonts.$font-text, serif;
+    color: colors.$background-color;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .button {
+    display: block;
+    position: relative;
+    width: 56px;
+    height: 56px;
+    transform: scale(0.8);
+    margin: 0;
+    overflow: hidden;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      inset: 7px;
+      transition: opacity 0.4s, transform 0.5s;
+    }
+
+    &::before {
+      border: 4px solid colors.$background-color;
+      transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+        transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+    }
+
+    &::after {
+      border: 4px solid colors.$background-color;
+      transform: scale(1.3);
+      opacity: 0;
+      transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+        transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .button-box {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      .button-elem {
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin: 17px 18px 0 18px;
+        transform: rotate(180deg);
+        fill: colors.$background-color;
+      }
+
+      &:hover,
+      &:focus {
+        transition: 0.4s;
+        transform: translateX(-56px);
       }
     }
-  
-    .button {
-      display: block;
-      position: relative;
-      width: 56px;
-      height: 56px;
-      transform: scale(0.8);
-      margin: 0;
-      overflow: hidden;
-      outline: none;
-      background-color: transparent;
-      cursor: pointer;
-      border: 0;
-  
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        border-radius: 50%;
-        inset: 7px;
-        transition: opacity 0.4s, transform 0.5s;
-      }
-  
+
+    /* Lorsque la classe .hover est activée, appliquer l'animation */
+    &.hover {
       &::before {
-        border: 4px solid colors.$background-color;
-        transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
-          transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
-      }
-  
-      &::after {
-        border: 4px solid colors.$background-color;
-        transform: scale(1.3);
-        opacity: 0;
-        transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
-          transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-  
-      .button-box {
-        display: flex;
-        position: absolute;
-        top: 0;
-        left: 0;
-  
-        .button-elem {
-          display: block;
-          width: 20px;
-          height: 20px;
-          margin: 17px 18px 0 18px;
-          transform: rotate(180deg);
-          fill: colors.$background-color;
-        }
-  
-        &:hover,
-        &:focus {
-          transition: 0.4s;
-          transform: translateX(-56px);
-        }
-      }
-  
-      /* Lorsque la classe .hover est activée, appliquer l'animation */
-      &.hover {
-        &::before {
-          opacity: 0;
-          transform: scale(0.7);
-        }
-  
-        &::after {
-          opacity: 1;
-          transform: scale(1);
-        }
-  
-        .button-box {
-          transition: 0.4s;
-          transform: translateX(-56px);
-        }
-      }
-  
-      /* Lors du survol normal du bouton */
-      &:hover::before,
-      &:focus::before {
         opacity: 0;
         transform: scale(0.7);
       }
-  
-      &:hover::after,
-      &:focus::after {
+
+      &::after {
         opacity: 1;
         transform: scale(1);
       }
+
+      .button-box {
+        transition: 0.4s;
+        transform: translateX(-56px);
+      }
+    }
+
+    /* Lors du survol normal du bouton */
+    &:hover::before,
+    &:focus::before {
+      opacity: 0;
+      transform: scale(0.7);
+    }
+
+    &:hover::after,
+    &:focus::after {
+      opacity: 1;
+      transform: scale(1);
     }
   }
-  
+}
